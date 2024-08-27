@@ -95,6 +95,9 @@ nav ul li{
     border-radius: 34px;
 }
 
+.songItem:hover{
+    background-color: #1ED760;
+}
 
 .songItem img{
     width: 43px;

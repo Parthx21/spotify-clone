@@ -2,23 +2,24 @@ console.log("Welcome to Spotify");
 
 // Initialize the variables
 let songIndex = 0;
-let audioElement = new Audio('spotify clone/urthemoon.mp3');
+let audioElement = new Audio('./songs/urthemoon.mp3');
 let masterPlay = document.getElementById('masterPlay');
 let myProgressBar = document.getElementById('myProgressBar');
 let gif = document.getElementById('gif');
 let songItems = Array.from(document.getElementsByClassName('songItems'));
+let masterSongName = document.getElementById('masterSongName');
 
 let songs = [
-    {songName: "UR THE MOON", filePath: "spotify clone/urthemoon.mp3", coverPath: "spotify clone/urthemoon.jpeg"},
-    {songName: "2024", filePath: "spotify clone/2024.mp3", coverPath: "spotify clone/2024.jpeg"},
-    {songName: "H00DBYAIR", filePath: "spotify clone/H00DBYAIR.mp3", coverPath: "spotify clone/H00DBYAIR.jpeg"},
-    {songName: "BACKR00MS ft Travis Scott", filePath: "spotify clone/BACKR00MS.mp3", coverPath: "spotify clone/BACKR00MS.jpeg"},
-    {songName: "EVIL J0RDAN", filePath: "spotify clone/EVIL J0RDAN.mp3", coverPath: "spotify clone/EVIL J0RDAN.jpeg"},
-    {songName: "KETAMINE", filePath: "spotify clone/KETAMINE.mp3", coverPath: "spotify clone/KETAMINE.jpeg"},
-    {songName: "MOJO JOJO", filePath: "spotify clone/MOJO JOJO.mp3", coverPath: "spotify clone/MOJO JOJO.jpg"},
-    {songName: "PROBLEM CHILD ft Travis Scott", filePath: "spotify clone/.mp3", coverPath: "spotify clone/.jpg"},
-    {songName: "HOMIXIDE555", filePath: "spotify clone/.mp3", coverPath: "spotify clone/.jpg"},
-    {songName: "00cactus ft Travis Scott", filePath: "spotify clone/.mp3", coverPath: "spotify clone/.jpg"},
+    {songName: "UR THE MOON", filePath: "./songs/urthemoon.mp3", coverPath: "./images/urthemoon.jpeg"},
+    {songName: "2024", filePath: "./songs/2024.mp3", coverPath: "./images/2024.jpeg"},
+    {songName: "H00DBYAIR", filePath: "./songs/H00DBYAIR.mp3", coverPath: "./images/H00DBYAIR.jpeg"},
+    {songName: "BACKR00MS ft Travis Scott", filePath: "./songs/BACKR00MS.mp3", coverPath: "./images/BACKR00MS.jpeg"},
+    {songName: "EVIL J0RDAN", filePath: "./songs/EVIL J0RDAN.mp3", coverPath: "./images/EVIL J0RDAN.jpeg"},
+    {songName: "KETAMINE", filePath: "./songs/KETAMINE.mp3", coverPath: "./images/KETAMINE.jpeg"},
+    {songName: "MOJO JOJO", filePath: "./songs/MOJO JOJO.mp3", coverPath: "./images/MOJO JOJO.jpeg"},
+    {songName: "PROBLEM CHILD ft Travis Scott", filePath: "./songs/PROBLEM CHILD.mp3", coverPath: "spoti/PROBLEM CHILD.jpeg"},
+    {songName: "HOMIXIDE555", filePath: "./songs/HOMIXIDE555.mp3", coverPath: "./images/HOMIXIDE555.jpeg"},
+    {songName: "00cactus ft Travis Scott", filePath: "./songs/00CACTUS.mp3", coverPath: "./images/00cactus.jpeg"},
 ]
 
 songItems.forEach((element, i)=>{
@@ -41,7 +42,7 @@ masterPlay.addEventListener('click',()=>{
         audioElement.pause();
         masterPlay.classList.remove('fa-pause-circle');
         masterPlay.classList.add('fa-play-circle');
-        gif.style.opacity = 1;
+        gif.style.opacity = 0;
     }
 })
 // Listen to Events
@@ -68,7 +69,7 @@ Array.from(document.getElementsByClassName('songItemsPlay')).forEach((element)=>
         songIndex = parseInt(e.target.id);
         e.target.classList.remove('fa-play-circle');
         e.target.classList.add('fa-pause-circle');
-        audioElement.src = `spotify clone/${songIndex+1}.mp3`;
+        audioElement.src = `./songs/${songIndex+1}.mp3`;
         masterSongName.innerText = songs[songIndex].songName;
         audioElement.currentTime = 0;
         audioElement.play();
