@@ -6,7 +6,7 @@ let audioElement = new Audio('./songs/urthemoon.mp3');
 let masterPlay = document.getElementById('masterPlay');
 let myProgressBar = document.getElementById('myProgressBar');
 let gif = document.getElementById('gif');
-let songItems = Array.from(document.getElementsByClassName('songItems'));
+let songItems = Array.from(document.getElementsByClassName('songItem'));
 let masterSongName = document.getElementById('masterSongName');
 
 let songs = [
@@ -77,4 +77,34 @@ Array.from(document.getElementsByClassName('songItemsPlay')).forEach((element)=>
         masterPlay.classList.remove('fa-play-circle');
         masterPlay.classList.add('fa-pause-circle');
     })
+})
+
+document.getElementById('next').addEventListener('click',()=>{
+    if(songIndex>=9){
+        songIndex = 0
+    }
+    else{
+        songIndex += 1;
+    }
+    audioElement.src = `./songs/${songIndex+1}.mp3`;
+    audioElement.currentTime = 0;
+    masterSongName.innerText = songs[songIndex].songName;
+    audioElement.play();
+    masterPlay.classList.remove('fa-play-circle');
+    masterPlay.classList.add('fa-pause-circle');
+})
+
+document.getElementById('previous').addEventListener('click',()=>{
+    if(songIndex<=0){
+        songIndex = 0
+    }
+    else{
+        songIndex -= 1;
+    }
+    audioElement.src = `./songs/${songIndex+1}.mp3`;
+    audioElement.currentTime = 0;
+    masterSongName.innerText = songs[songIndex].songName;
+    audioElement.play();
+    masterPlay.classList.remove('fa-play-circle');
+    masterPlay.classList.add('fa-pause-circle');
 })
